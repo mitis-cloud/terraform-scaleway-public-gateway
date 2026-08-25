@@ -28,7 +28,7 @@ resource "scaleway_vpc_public_gateway" "this" {
   bastion_enabled   = var.bastion_enabled
   bastion_port      = var.bastion_port
   enable_smtp       = var.enable_smtp
-  allowed_ip_ranges = var.allowed_ip_ranges
+  allowed_ip_ranges = length(var.allowed_ip_ranges) > 0 ? var.allowed_ip_ranges : null
   refresh_ssh_keys  = var.refresh_ssh_keys
   tags              = local.tags
 

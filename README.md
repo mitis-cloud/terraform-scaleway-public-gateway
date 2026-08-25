@@ -85,7 +85,7 @@ gateway.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| allowed\_ip\_ranges | CIDRs permitted to reach the gateway's public services, such as the bastion. Empty means Scaleway's default. | `list(string)` | `[]` | no |
+| allowed\_ip\_ranges | CIDRs permitted to reach the gateway's public services, such as the bastion.<br/><br/>Empty leaves the attribute unset so Scaleway's own default applies. Sending an<br/>explicit empty list would instead clear the default `0.0.0.0/0` rule and lock<br/>the bastion down, which is rarely what an unset variable is meant to express. | `list(string)` | `[]` | no |
 | bastion\_enabled | Expose the SSH bastion. Scaleway's documented route for reaching instances that have no public IP. | `bool` | `false` | no |
 | bastion\_port | TCP port for the SSH bastion. | `number` | `61000` | no |
 | create | Whether to create any resources. | `bool` | `true` | no |

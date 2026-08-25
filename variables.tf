@@ -66,7 +66,13 @@ variable "enable_smtp" {
 
 variable "allowed_ip_ranges" {
   type        = list(string)
-  description = "CIDRs permitted to reach the gateway's public services, such as the bastion. Empty means Scaleway's default."
+  description = <<-EOT
+    CIDRs permitted to reach the gateway's public services, such as the bastion.
+
+    Empty leaves the attribute unset so Scaleway's own default applies. Sending an
+    explicit empty list would instead clear the default `0.0.0.0/0` rule and lock
+    the bastion down, which is rarely what an unset variable is meant to express.
+  EOT
   default     = []
 }
 
