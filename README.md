@@ -71,7 +71,7 @@ gateway.
 
 | Name | Version |
 |------|---------|
-| scaleway | 2.81.0 |
+| scaleway | >= 2.81, < 3.0 |
 
 ## Resources
 
